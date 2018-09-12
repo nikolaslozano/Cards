@@ -7,7 +7,9 @@ package Cards;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -39,6 +41,7 @@ public class MostrarCartas extends javax.swing.JFrame {
         Carta4 = new javax.swing.JLabel();
         Carta5 = new javax.swing.JLabel();
         Carta6 = new javax.swing.JLabel();
+        Prueba = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         crearBaraja = new javax.swing.JMenu();
         barajar = new javax.swing.JMenu();
@@ -91,12 +94,15 @@ public class MostrarCartas extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Carta1)
-                    .addComponent(Carta4))
-                .addGap(132, 132, 132)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Carta2)
-                    .addComponent(Carta5))
+                    .addComponent(Prueba)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Carta1)
+                            .addComponent(Carta4))
+                        .addGap(132, 132, 132)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Carta2)
+                            .addComponent(Carta5))))
                 .addGap(114, 114, 114)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Carta3)
@@ -120,7 +126,9 @@ public class MostrarCartas extends javax.swing.JFrame {
                         .addComponent(Carta1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Carta4)))
-                .addContainerGap(224, Short.MAX_VALUE))
+                .addGap(99, 99, 99)
+                .addComponent(Prueba)
+                .addContainerGap(125, Short.MAX_VALUE))
         );
 
         pack();
@@ -142,6 +150,17 @@ public class MostrarCartas extends javax.swing.JFrame {
         Carta4.setText(nuevaBaraja.jugador1[3].número+" de "+nuevaBaraja.jugador1[3].palo);
         Carta5.setText(nuevaBaraja.jugador1[4].número+" de "+nuevaBaraja.jugador1[4].palo);
         Carta6.setText(nuevaBaraja.jugador1[5].número+" de "+nuevaBaraja.jugador1[5].palo);
+        
+        File miArchivo=new File("carta.jpg");
+        
+        try{
+            BufferedImage miImagen=ImageIO.read(miArchivo);
+            ImageIcon miIcono=new ImageIcon(miImagen);
+            Prueba.setIcon(miIcono);
+        }
+        catch(IOException miExcepción){
+            Prueba.setText("ups");
+        }
     }//GEN-LAST:event_repartirMouseClicked
 
     /**
@@ -186,6 +205,7 @@ public class MostrarCartas extends javax.swing.JFrame {
     private javax.swing.JLabel Carta4;
     private javax.swing.JLabel Carta5;
     private javax.swing.JLabel Carta6;
+    private javax.swing.JLabel Prueba;
     private javax.swing.JMenu barajar;
     private javax.swing.JMenu crearBaraja;
     private javax.swing.JMenuBar jMenuBar1;
