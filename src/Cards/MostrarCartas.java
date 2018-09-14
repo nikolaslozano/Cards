@@ -12,7 +12,9 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -32,15 +34,13 @@ public class MostrarCartas extends javax.swing.JFrame {
         for(int i=0;i<6;i++){
             espacio[i]=new javax.swing.JLabel();
             if(i<3){
-                espacio[i].setBounds(115*i,0,110,154); 
+                espacio[i].setBounds(230*i,0,225,315); 
             }
             else{
-                espacio[i].setBounds(115*(i-3),159,110,154); 
+                espacio[i].setBounds(230*(i-3),320,225,315); 
             }
             add(espacio[i]); 
         }
-        barajar.disable();
-        repartir.disable();
     }
     
     
@@ -111,30 +111,35 @@ public class MostrarCartas extends javax.swing.JFrame {
 
     private void crearBarajaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearBarajaMouseClicked
         nuevaBaraja.crearBaraja();
-        barajar.enable();
-        repartir.enable();
     }//GEN-LAST:event_crearBarajaMouseClicked
 
     private void barajarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_barajarMouseClicked
-        nuevaBaraja.barajar();
+        if (nuevaBaraja.baraja[0] instanceof Carta) {
+            nuevaBaraja.barajar();
+        }else {
+            JOptionPane.showMessageDialog(this, "Cree primero la baraja, caramba");
+        }
     }//GEN-LAST:event_barajarMouseClicked
 
     private void repartirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_repartirMouseClicked
         nuevaBaraja.repartir(6);
         
-        File miArchivo=new File("carta.jpg");
-        BufferedImage miImagen = null;
-        try {
-            miImagen = ImageIO.read(miArchivo);
-        } catch (IOException ex) {
-            Logger.getLogger(MostrarCartas.class.getName()).log(Level.SEVERE, null, ex);
+        File miArchivo=new File("baraja_1.jpg");
+        if (nuevaBaraja.baraja[0] instanceof Carta) {
+            for(int i=0;i<6;i++){
+                try {
+                    BufferedImage miImagen = ImageIO.read(miArchivo);
+                    BufferedImage recorte;
+                    recorte = miImagen.getSubimage(225 * (nuevaBaraja.jugador1[i].posición % 13), 315 * (nuevaBaraja.jugador1[i].posición / 13), 225, 315);
+                    ImageIcon fin=new ImageIcon(recorte);
+                    espacio[i].setIcon(fin);
+                } catch (IOException ex) {
+                    Logger.getLogger(MostrarCartas.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
-        ImageIcon miIcono=new ImageIcon(miImagen);
-        for(int i=0;i<6;i++){
-            Image conversión = miIcono.getImage();
-            Image tamaño = conversión.getScaledInstance(110, 154, Image.SCALE_SMOOTH);
-            ImageIcon fin = new ImageIcon(tamaño);
-            espacio[i].setIcon(fin);
+        else{
+            JOptionPane.showMessageDialog(this, "Cree primero la baraja, caramba");
         }
         
     }//GEN-LAST:event_repartirMouseClicked

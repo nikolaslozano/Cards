@@ -5,4 +5,7 @@ public class Carta {
     
     String palo;
     String número;
+    int posición;
 }
+
+    

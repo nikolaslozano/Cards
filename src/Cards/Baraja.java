@@ -4,7 +4,7 @@ package Cards;
 import java.util.Random;
 
 public class Baraja {
-    String palo[]={"Tréboles","Corazones","Picas","Diamantes"};
+    String palo[]={"Picas","Diamantes","Tréboles","Corazones"};
     String número[]={"As","2","3","4","5","6","7","8","9","10","Jack","Queen","King"};
     
     Carta baraja[]=new Carta[52];
@@ -19,6 +19,7 @@ public class Baraja {
                 baraja[cont]=new Carta();
                 baraja[cont].palo=palo[i];
                 baraja[cont].número=número[j];
+                baraja[cont].posición=(i + 1) * j;
                 cont++;
             }
         }
