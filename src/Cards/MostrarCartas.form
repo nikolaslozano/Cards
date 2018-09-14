@@ -55,89 +55,23 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="Prueba" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="Carta1" min="-2" max="-2" attributes="0"/>
-                          <Component id="Carta4" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="Carta2" min="-2" max="-2" attributes="0"/>
-                          <Component id="Carta5" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-              </Group>
-              <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="Carta3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Carta6" alignment="0" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="116" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="222" max="-2" attributes="0"/>
+              <Component id="Prueba" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="218" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="Carta3" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Component id="Carta6" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="Carta2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Carta5" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="Carta1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Carta4" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
               <Component id="Prueba" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="125" max="32767" attributes="0"/>
+              <EmptySpace pref="191" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="Carta1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Carta1"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="Carta2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Carta2"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="Carta3">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Carta3"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="Carta4">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Carta4"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="Carta5">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Carta5"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="Carta6">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Carta6"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="Prueba">
     </Component>
   </SubComponents>

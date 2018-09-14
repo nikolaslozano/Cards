@@ -5,9 +5,12 @@
  */
 package Cards;
 
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
@@ -20,11 +23,28 @@ public class MostrarCartas extends javax.swing.JFrame {
     /**
      * Creates new form MostrarCartas
      */
+    
+    javax.swing.JLabel espacio[]=new javax.swing.JLabel[6];
+    Baraja nuevaBaraja=new Baraja();
+    
     public MostrarCartas() {
         initComponents();
+        for(int i=0;i<6;i++){
+            espacio[i]=new javax.swing.JLabel();
+            if(i<3){
+                espacio[i].setBounds(115*i,0,110,154); 
+            }
+            else{
+                espacio[i].setBounds(115*(i-3),159,110,154); 
+            }
+            add(espacio[i]); 
+        }
+        barajar.disable();
+        repartir.disable();
     }
     
-    Baraja nuevaBaraja=new Baraja();
+    
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,12 +55,6 @@ public class MostrarCartas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Carta1 = new javax.swing.JLabel();
-        Carta2 = new javax.swing.JLabel();
-        Carta3 = new javax.swing.JLabel();
-        Carta4 = new javax.swing.JLabel();
-        Carta5 = new javax.swing.JLabel();
-        Carta6 = new javax.swing.JLabel();
         Prueba = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         crearBaraja = new javax.swing.JMenu();
@@ -48,18 +62,6 @@ public class MostrarCartas extends javax.swing.JFrame {
         repartir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        Carta1.setText("Carta1");
-
-        Carta2.setText("Carta2");
-
-        Carta3.setText("Carta3");
-
-        Carta4.setText("Carta4");
-
-        Carta5.setText("Carta5");
-
-        Carta6.setText("Carta6");
 
         crearBaraja.setText("Crear Baraja");
         crearBaraja.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -92,43 +94,16 @@ public class MostrarCartas extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Prueba)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Carta1)
-                            .addComponent(Carta4))
-                        .addGap(132, 132, 132)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Carta2)
-                            .addComponent(Carta5))))
-                .addGap(114, 114, 114)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Carta3)
-                    .addComponent(Carta6))
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addGap(222, 222, 222)
+                .addComponent(Prueba)
+                .addContainerGap(218, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Carta3)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(Carta6))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Carta2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Carta5))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Carta1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Carta4)))
-                .addGap(99, 99, 99)
+                .addGap(154, 154, 154)
                 .addComponent(Prueba)
-                .addContainerGap(125, Short.MAX_VALUE))
+                .addContainerGap(191, Short.MAX_VALUE))
         );
 
         pack();
@@ -136,6 +111,8 @@ public class MostrarCartas extends javax.swing.JFrame {
 
     private void crearBarajaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearBarajaMouseClicked
         nuevaBaraja.crearBaraja();
+        barajar.enable();
+        repartir.enable();
     }//GEN-LAST:event_crearBarajaMouseClicked
 
     private void barajarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_barajarMouseClicked
@@ -144,23 +121,22 @@ public class MostrarCartas extends javax.swing.JFrame {
 
     private void repartirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_repartirMouseClicked
         nuevaBaraja.repartir(6);
-        Carta1.setText(nuevaBaraja.jugador1[0].número+" de "+nuevaBaraja.jugador1[0].palo);
-        Carta2.setText(nuevaBaraja.jugador1[1].número+" de "+nuevaBaraja.jugador1[1].palo);
-        Carta3.setText(nuevaBaraja.jugador1[2].número+" de "+nuevaBaraja.jugador1[2].palo);
-        Carta4.setText(nuevaBaraja.jugador1[3].número+" de "+nuevaBaraja.jugador1[3].palo);
-        Carta5.setText(nuevaBaraja.jugador1[4].número+" de "+nuevaBaraja.jugador1[4].palo);
-        Carta6.setText(nuevaBaraja.jugador1[5].número+" de "+nuevaBaraja.jugador1[5].palo);
         
         File miArchivo=new File("carta.jpg");
+        BufferedImage miImagen = null;
+        try {
+            miImagen = ImageIO.read(miArchivo);
+        } catch (IOException ex) {
+            Logger.getLogger(MostrarCartas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ImageIcon miIcono=new ImageIcon(miImagen);
+        for(int i=0;i<6;i++){
+            Image conversión = miIcono.getImage();
+            Image tamaño = conversión.getScaledInstance(110, 154, Image.SCALE_SMOOTH);
+            ImageIcon fin = new ImageIcon(tamaño);
+            espacio[i].setIcon(fin);
+        }
         
-        try{
-            BufferedImage miImagen=ImageIO.read(miArchivo);
-            ImageIcon miIcono=new ImageIcon(miImagen);
-            Prueba.setIcon(miIcono);
-        }
-        catch(IOException miExcepción){
-            Prueba.setText("ups");
-        }
     }//GEN-LAST:event_repartirMouseClicked
 
     /**
@@ -199,12 +175,6 @@ public class MostrarCartas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Carta1;
-    private javax.swing.JLabel Carta2;
-    private javax.swing.JLabel Carta3;
-    private javax.swing.JLabel Carta4;
-    private javax.swing.JLabel Carta5;
-    private javax.swing.JLabel Carta6;
     private javax.swing.JLabel Prueba;
     private javax.swing.JMenu barajar;
     private javax.swing.JMenu crearBaraja;
